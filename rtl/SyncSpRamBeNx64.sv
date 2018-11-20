@@ -132,6 +132,7 @@ module SyncSpRamBeNx64
   // assertions
   ////////////////////////////
 
+`ifndef VERILATOR
   // pragma translate_off
   assert property
     (@(posedge Clk_CI) (longint'(2)**longint'(ADDR_WIDTH) >= longint'(DATA_DEPTH)))
@@ -143,5 +144,6 @@ module SyncSpRamBeNx64
       $error("FPGA target not defined, define  FPGA_TARGET_XILINX or FPGA_TARGET_ALTERA.");
     `endif
   `endif
+`endif
 
 endmodule // SyncSpRamBeNx64
